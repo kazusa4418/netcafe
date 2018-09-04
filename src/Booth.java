@@ -3,7 +3,9 @@ public class Booth {
 	private Status status;
 	//部屋番号
 	private final String boothNo;
-
+	//使用しているお客様情報
+	private Customer customer;
+	
 	Booth(Status status, String boothNo){
 		this.status = status;
 		this.boothNo = boothNo;
@@ -27,20 +29,3 @@ public class Booth {
 	    return boothNo + " " + status;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
