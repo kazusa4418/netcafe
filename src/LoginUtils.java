@@ -1,4 +1,3 @@
-import mysql.FailedDatabaseAccessException;
 import mysql.MySql;
 
 import java.sql.Date;

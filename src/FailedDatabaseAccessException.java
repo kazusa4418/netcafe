@@ -1,6 +1,4 @@
-package mysql;
-
-class FailedDatabaseAccessException extends Exception {
+public class FailedDatabaseAccessException extends Exception {
     private int errorId;
 
     FailedDatabaseAccessException(int errorId, String errMsg) {
