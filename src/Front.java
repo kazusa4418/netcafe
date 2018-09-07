@@ -6,17 +6,23 @@ public class Front {
         BoothManager boothManager = BoothManager.getInstance();
         Scanner sc = new Scanner(System.in);
 
-        //ログイン処理
+        //入力を受け付ける
         System.out.println("会員番号を入力してださい");
-        int customerId = Integer.parseInt(sc.nextLine());
+        String customerId = sc.nextLine();
         System.out.println("パスワードを入力してください");
         int customerPass = Integer.parseInt(sc.nextLine());
+
         //不正なパスワードでないか検査する
+        boolean isEnabledPass;
+        do {
+            isEnabledPass = isEnable(customerPass);
+        }while (!(isEnabledPass));
 
-
-        isEnable(customerPass);
-
+        //ログインする
         Login(customerId, customerPass);
+
+        //----------ログインが成功した時のみこの先に進める------------------------------------------------------
+
 
         //空き部屋を表示するための処理
         Booth unusedRooms [] = boothManager.getUnusedRooms();
@@ -25,7 +31,7 @@ public class Front {
         }
 
         //空室状況の問い合わせ
-        System.out.println("お部屋を選択してください");
+        System.out.println("\n以上の中からお部屋を選択してください");
         String boothNum = sc.nextLine();
 
         //部屋の割当の確定処理
@@ -33,16 +39,19 @@ public class Front {
         System.out.println("お客様のお部屋は" + boothNum + "になります");
     }
 
-    private static boolean isEnable(int customerPass){
+    private static boolean checkIdEnable (String customerId){
+        if (customerId.contains())
+    }
+
+    private static boolean checkPassEnable (int customerPass){
         if (String.valueOf(customerPass).length() >= 30){
          System.out.println("不正な値が入力されました");
-
+         return false;
         }
-
         return true;
     }
 
-    private static void Login(int customerId, int customerPass) {
+    private static void Login(String customerId, int customerPass) {
         try {
              LoginStatus isEnabled = LoginUtils.isEnabledUser(customerId, customerPass);
              if (isEnabled.equals(LoginStatus.ENABLED)){
@@ -52,7 +61,14 @@ public class Front {
                  System.exit(0);
              }
         } catch (FailedDatabaseAccessException e) {
-
+            switch (e.getErr()){
+                case 1:
+                    System.out.println("エラーコード:" + e.getErr());
+                    System.out.println("アクセスエラーです。従業員をお呼びください");
+                case 2:
+                    System.out.println("エラーコード:" + e.getErr());
+                    System.out.println("重大なエラーが発生しました。サーバー管理者に問い合わせてください");
+            }
         }
     }
 
