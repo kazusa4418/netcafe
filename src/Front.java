@@ -26,8 +26,10 @@ public class Front {
             if (isEnabled) {
                 System.out.println("お客様情報が確認できました。");
             } else {
-                //LoginStatusにより分岐する
-                if()
+                //磁気不良によりログインができなかった。
+                if(){
+
+                }
             }
         } catch (FailedDatabaseAccessException e) {
             System.out.println();

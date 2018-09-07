@@ -21,11 +21,18 @@ public class Booth {
 		this.status = status;
 	}
 
-	public String getBoothNo() {
+	//お客様を部屋にセットする
+	void setCustomer(Customer customer){this.customer = customer;}
+
+	String getBoothNo() {
 	    return boothNo;
     }
 
     public String toString() {
 	    return boothNo + " " + status;
     }
+
+    Customer getCustomer(){
+		return this.customer;
+	}
 }
