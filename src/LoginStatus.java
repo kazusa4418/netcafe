@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
 
-public class LoginStatus {
+public enum LoginStatus {
+    ENABLED,
+    UNMATCHED,
+    EXPIRED
 }
