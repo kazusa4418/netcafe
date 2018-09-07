@@ -29,10 +29,12 @@ public class BoothManager {
         return list.toArray(new Booth[list.size()]);
     }
 
-    public void setStatus(String boothNo, Status status) {
+    void setStatus(String boothNo) {
         for (Booth booth : boothList) {
             if (booth.getBoothNo().equals(boothNo)) {
-                booth.setStatus(status);
+                booth.setStatus(Status.USED);
+                //お客様を引数に与えられた部屋にセットする
+                booth.setCustomer(new Customer());
             }
         }
     }
