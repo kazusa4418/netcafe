@@ -1,12 +1,12 @@
+public class FailedDatabaseAccessException extends Exception {
+    private int errorId;
 
-public class FailedDatabaseAccessException extends Exception{
-    int err;
-    FailedDatabaseAccessException(int i, String s){
-        super(s);
-        this.err = i;
+    FailedDatabaseAccessException(int errorId, String errMsg) {
+        super(errMsg);
+        this.errorId = errorId;
     }
 
-    public int getErr(){
-        return err;
+    int getErrorId() {
+        return errorId;
     }
 }

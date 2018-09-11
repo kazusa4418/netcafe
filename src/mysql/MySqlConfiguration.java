@@ -9,6 +9,7 @@ class MySqlConfiguration {
     private static String userName;
     private static String password;
     private static String databaseName;
+
     private static String useSSL;
     private static String autoConnect;
 
@@ -53,7 +54,7 @@ class MySqlConfiguration {
     static String getDatabaseName() {
         return databaseName;
     }
-
+  
     static String getUseSSL() {
         return useSSL;
     }
