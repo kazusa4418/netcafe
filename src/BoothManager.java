@@ -18,7 +18,7 @@ public class BoothManager {
         }
     }
 
-    public Booth[] getUnusedRooms() {
+    Booth[] getUnusedRooms() {
         ArrayList<Booth> list = new ArrayList<>();
 
         for (Booth booth : boothList) {
@@ -26,7 +26,7 @@ public class BoothManager {
                 list.add(booth);
             }
         }
-        return list.toArray(new Booth[list.size()]);
+        return list.toArray(new Booth[16]);
     }
 
     void setStatus(String boothNo) {

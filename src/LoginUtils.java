@@ -1,6 +1,6 @@
 
 public class LoginUtils {
-    public static LoginStatus isEnabledUser(int customerId, int customerPass) throws FailedDatabaseAccessException{
+    public static LoginStatus isEnabledUser(String customerId, String customerPass) throws FailedDatabaseAccessException{
         return LoginStatus.ENABLED;
     }
 }
