@@ -18,7 +18,7 @@ public class BoothManager {
         }
     }
 
-    public Booth[] getUnusedRooms() {
+    Booth[] getUnusedRooms() {
         ArrayList<Booth> list = new ArrayList<>();
 
         for (Booth booth : boothList) {
@@ -26,13 +26,15 @@ public class BoothManager {
                 list.add(booth);
             }
         }
-        return list.toArray(new Booth[list.size()]);
+        return list.toArray(new Booth[16]);
     }
 
-    public void setStatus(String boothNo, Status status) {
+    void setStatus(String boothNo) {
         for (Booth booth : boothList) {
             if (booth.getBoothNo().equals(boothNo)) {
-                booth.setStatus(status);
+                booth.setStatus(Status.USED);
+                //お客様を引数に与えられた部屋にセットする
+                booth.setCustomer(new Customer());
             }
         }
     }
